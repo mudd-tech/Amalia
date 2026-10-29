@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMALIA | الروابط الرسمية</title>
-    <!-- خط Cairo من جوجل لمظهر عصري وفخم -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <title>AMALIA | تابعينا</title>
+    <!-- خط Tajawal و Cairo لمظهر بناتي ناعم وعصري -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&display=swap" rel="stylesheet">
     <!-- مكتبة أيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --gold-primary: #d4af37;
-            --gold-light: #f9e8a2;
-            --dark-bg: #0b0b0e;
-            --card-bg: rgba(20, 20, 25, 0.88);
+            --pink-main: #ff4d94;
+            --pink-soft: #ff85b3;
+            --bg-gradient: linear-gradient(135deg, #fff0f6 0%, #ffe3ec 50%, #fce8f3 100%);
         }
 
         * {
@@ -26,57 +25,87 @@
         }
 
         body {
-            background-color: var(--dark-bg);
-            background-image: 
-                radial-gradient(circle at 20% 10%, rgba(212, 175, 55, 0.14) 0%, transparent 45%),
-                radial-gradient(circle at 80% 90%, rgba(212, 175, 55, 0.08) 0%, transparent 45%);
+            background: var(--bg-gradient);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px 15px;
-            color: #ffffff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* دوائر مضيئة ناعمة في الخلفية لستايل بناتي عصري */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        body::before {
+            width: 280px;
+            height: 280px;
+            background: rgba(255, 105, 180, 0.28);
+            top: -60px;
+            right: -60px;
+        }
+
+        body::after {
+            width: 300px;
+            height: 300px;
+            background: rgba(199, 125, 255, 0.25);
+            bottom: -70px;
+            left: -70px;
         }
 
         .card {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.78);
             width: 100%;
-            max-width: 430px;
-            border-radius: 34px;
-            padding: 45px 26px 32px;
+            max-width: 420px;
+            border-radius: 36px;
+            padding: 40px 24px 28px;
             text-align: center;
             box-shadow: 
-                0 25px 55px rgba(0, 0, 0, 0.75),
-                0 0 0 1px rgba(212, 175, 55, 0.22),
-                inset 0 1px 1px rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(20px);
-            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+                0 20px 45px rgba(255, 77, 148, 0.15),
+                0 0 0 2px rgba(255, 255, 255, 0.9) inset;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            position: relative;
+            z-index: 1;
+            animation: popIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(25px) scale(0.96); }
+        @keyframes popIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.96); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* إطار اللوجو الفخم بحجم كبير وواضح */
+        /* اللوجو بحجم كبير مع إطار وردي مضيء */
         .logo-wrapper {
-            width: 190px;
-            height: 190px;
-            margin: 0 auto 20px;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 16px;
             border-radius: 50%;
-            padding: 6px;
-            background: linear-gradient(135deg, #ffffff 0%, var(--gold-primary) 50%, #ffffff 100%);
+            padding: 7px;
+            background: linear-gradient(135deg, #ff4d94, #ffb3d1, #b565f7);
             box-shadow: 
-                0 14px 35px rgba(0, 0, 0, 0.6),
-                0 0 28px rgba(212, 175, 55, 0.28);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+                0 10px 30px rgba(255, 77, 148, 0.35),
+                0 0 25px rgba(255, 77, 148, 0.45);
+            animation: logoGlow 2.5s infinite alternate ease-in-out;
         }
 
-        .logo-wrapper:hover {
-            transform: scale(1.04);
-            box-shadow: 
-                0 18px 45px rgba(0, 0, 0, 0.75),
-                0 0 38px rgba(212, 175, 55, 0.45);
+        @keyframes logoGlow {
+            0% {
+                box-shadow: 0 10px 25px rgba(255, 77, 148, 0.3), 0 0 20px rgba(255, 77, 148, 0.4);
+                transform: translateY(0);
+            }
+            100% {
+                box-shadow: 0 14px 35px rgba(255, 77, 148, 0.55), 0 0 35px rgba(255, 105, 180, 0.65);
+                transform: translateY(-4px);
+            }
         }
 
         .logo-wrapper img {
@@ -86,102 +115,130 @@
             border-radius: 50%;
             background: #ffffff;
             display: block;
+            border: 3px solid #ffffff;
         }
 
         .brand-title {
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 900;
-            letter-spacing: 3.5px;
-            margin-bottom: 32px;
-            background: linear-gradient(to right, #ffffff, var(--gold-light), #ffffff);
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+            background: linear-gradient(90deg, #d6246e, #ff4d94, #9b30ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .brand-subtitle {
+            font-size: 14px;
+            color: #9e6b83;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        /* قائمة الأزرار */
         .links-list {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
+            width: 100%;
         }
 
+        /* توحيد حجم الأزرار بالملي وجعلها مضيئة */
         .social-btn {
-            display: flex;
+            display: grid;
+            grid-template-columns: 36px 1fr 24px;
             align-items: center;
-            justify-content: space-between;
-            padding: 18px 24px;
-            border-radius: 20px;
+            width: 100%;
+            height: 64px; /* ارتفاع ثابت ومتساوي تماماً للزرين */
+            padding: 0 22px;
+            border-radius: 50px;
             text-decoration: none;
             font-size: 17px;
             font-weight: 800;
-            color: #fff;
-            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            color: #ffffff;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.45);
         }
 
-        /* لمعة فخمة تتحرك على الأزرار */
-        .social-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 55%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-            transform: skewX(-25deg);
-            transition: 0.65s;
-        }
-
-        .social-btn:hover::before {
-            left: 130%;
+        .social-btn span {
+            text-align: center;
+            white-space: nowrap;
         }
 
         .social-btn i.icon-main {
-            font-size: 26px;
-            width: 32px;
-            text-align: center;
+            font-size: 25px;
+            justify-self: start;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
         }
 
         .social-btn i.icon-arrow {
             font-size: 15px;
-            opacity: 0.85;
+            justify-self: end;
+            opacity: 0.9;
             transition: transform 0.3s ease;
         }
 
+        /* لمعة ضوئية مستمرة تتحرك على الأزرار */
+        .social-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-25deg);
+            animation: shineEffect 3.5s infinite;
+        }
+
+        @keyframes shineEffect {
+            0% { left: -120%; }
+            45%, 100% { left: 140%; }
+        }
+
         .social-btn:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px) scale(1.02);
         }
 
         .social-btn:hover i.icon-arrow {
-            transform: translateX(-6px);
+            transform: translateX(-5px);
         }
 
-        /* تصميم زر فيسبوك */
+        /* زر فيسبوك مضيء */
         .btn-facebook {
-            background: linear-gradient(135deg, #1877F2 0%, #094ca3 100%);
-            box-shadow: 0 10px 25px rgba(24, 119, 242, 0.3);
+            background: linear-gradient(135deg, #2b86ff 0%, #0056d6 100%);
+            box-shadow: 
+                0 8px 25px rgba(24, 119, 242, 0.45),
+                0 0 18px rgba(43, 134, 255, 0.65);
+            animation: pulseFb 2.2s infinite alternate;
         }
 
-        .btn-facebook:hover {
-            box-shadow: 0 14px 32px rgba(24, 119, 242, 0.5);
+        @keyframes pulseFb {
+            0% { box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4), 0 0 14px rgba(43, 134, 255, 0.5); }
+            100% { box-shadow: 0 10px 28px rgba(24, 119, 242, 0.65), 0 0 26px rgba(43, 134, 255, 0.85); }
         }
 
-        /* تصميم زر انستجرام */
+        /* زر انستجرام مضيء بستايل بناتي جذاب */
         .btn-instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            box-shadow: 0 10px 25px rgba(220, 39, 67, 0.3);
+            background: linear-gradient(45deg, #ff7a59 0%, #ff2a85 50%, #a833ff 100%);
+            box-shadow: 
+                0 8px 25px rgba(255, 42, 133, 0.45),
+                0 0 18px rgba(255, 42, 133, 0.65);
+            animation: pulseIg 2.2s infinite alternate;
         }
 
-        .btn-instagram:hover {
-            box-shadow: 0 14px 32px rgba(220, 39, 67, 0.5);
+        @keyframes pulseIg {
+            0% { box-shadow: 0 6px 20px rgba(255, 42, 133, 0.4), 0 0 14px rgba(255, 42, 133, 0.5); }
+            100% { box-shadow: 0 10px 28px rgba(255, 42, 133, 0.65), 0 0 26px rgba(255, 42, 133, 0.85); }
         }
 
         /* قسم زر Tapio الصغير للتواصل عبر واتساب */
         .tapio-section {
-            margin-top: 34px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1px dashed rgba(255, 77, 148, 0.25);
             display: flex;
             justify-content: center;
         }
@@ -189,61 +246,62 @@
         .tapio-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
+            gap: 7px;
+            padding: 7px 16px;
             border-radius: 50px;
-            background: rgba(37, 211, 102, 0.08);
-            border: 1px solid rgba(37, 211, 102, 0.35);
-            color: #d1d5db;
+            background: #ffffff;
+            border: 1.5px solid rgba(37, 211, 102, 0.45);
+            color: #555;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 700;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
             transition: all 0.3s ease;
         }
 
         .tapio-btn i {
             color: #25D366;
-            font-size: 17px;
+            font-size: 16px;
         }
 
         .tapio-btn .tapio-name {
-            color: #25D366;
+            color: #16a34a;
             font-weight: 800;
-            letter-spacing: 0.5px;
         }
 
         .tapio-btn:hover {
             background: #25D366;
-            color: #0b0b0e;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
             transform: translateY(-2px);
         }
 
         .tapio-btn:hover i,
         .tapio-btn:hover .tapio-name {
-            color: #0b0b0e;
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- صورة اللوجو بحجم كبير (يبحث الكود تلقائياً عن الاسم الصحيح للصورة) -->
+        <!-- صورة اللوجو بحجم كبير وإطار وردي مضيء -->
         <div class="logo-wrapper">
             <img id="brandLogo" src="logo.png" alt="AMALIA Logo">
         </div>
 
         <h1 class="brand-title">AMALIA</h1>
+        <p class="brand-subtitle">أهلاً بكِ في عالم أماليا 🌸</p>
 
         <div class="links-list">
-            <!-- رابط فيسبوك -->
+            <!-- زر فيسبوك المضيء -->
             <a href="https://www.facebook.com/share/1DndWjMiZq/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
                 <i class="fab fa-facebook-f icon-main"></i>
                 <span>تابعينا علي فيس بوك</span>
                 <i class="fas fa-chevron-left icon-arrow"></i>
             </a>
 
-            <!-- رابط انستجرام -->
+            <!-- زر انستجرام المضيء (بنفس الحجم بالضبط) -->
             <a href="https://www.instagram.com/amalia_20255?psln=MThjNmNzcWRzeHV1NA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
                 <i class="fab fa-instagram icon-main"></i>
                 <span>اعمليلنا فولو علي الانستجرام</span>
@@ -260,7 +318,7 @@
         </div>
     </div>
 
-    <!-- كود ذكي لضمان ظهور اللوجو أياً كانت صيغة الصورة المرفوعة -->
+    <!-- كود ذكي للتعرف على صورة اللوجو أياً كان اسمها -->
     <script>
         const logoImg = document.getElementById('brandLogo');
         const possibleNames = ['logo.jpg', 'logo.jpeg', 'image.png', 'image.jpg', 'Logo.png', 'Logo.jpg'];
